@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Form(props) {
-  const { values, submit, change } = props;
+  const { values, submit, change, errors } = props;
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +18,12 @@ export default function Form(props) {
     <div>
         <h2>New User Form</h2>
       <form className="form container" onSubmit={onSubmit}>
+      <div className='errors'>
+          <div>{errors.name}</div>
+          <div>{errors.email}</div>
+          <div>{errors.password}</div>
+          <div>{errors.terms}</div>
+        </div>
         <label>
           Name
           <input
@@ -50,11 +56,11 @@ export default function Form(props) {
           <input
             name="terms"
             type="checkbox"
-            checked={values.checked}
+            checked={values.terms}
             onChange={onChange}
           />
         </label>
-        <input type="submit" />
+        <button>submit</button>
       </form>
     </div>
   );

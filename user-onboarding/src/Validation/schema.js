@@ -13,7 +13,9 @@ const schema = yup.object().shape({
     .string()
     .required('Must enter password')
     .trim(),
-    terms: yup.boolean().required('Accept Terms and Conditions to continue')
+    terms: yup
+    .boolean()
+    .oneOf([true],'Accept Terms and Conditions to continue')
 })
 
 export default schema
