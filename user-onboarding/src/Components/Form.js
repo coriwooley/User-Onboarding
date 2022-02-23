@@ -16,6 +16,7 @@ export default function Form(props) {
 
   return (
     <div>
+        <h2>New User Form</h2>
       <form className="form container" onSubmit={onSubmit}>
         <label>
           Name

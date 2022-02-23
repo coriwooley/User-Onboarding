@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Form from './Components/Form'
+import schema from './Validation/schema';
 
 const initialFormValues = {
   name: '',
@@ -11,6 +12,15 @@ const initialFormValues = {
 
 function App() {
   const [formValues, setFormValues] = useState(initialFormValues)
+
+
+  const inputChange = (name, value) => {
+    setFormValues({...formValues, [name]: value})
+  }
+
+  const formSubmit = () => {
+    
+  }
   
   
   
