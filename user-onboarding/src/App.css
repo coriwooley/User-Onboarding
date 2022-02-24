@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -35,4 +38,19 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.usercard {
+  max-width: 60%;
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  border-radius: 100px;
+  margin-top: 5rem;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
 }

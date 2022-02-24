@@ -1,68 +1,52 @@
 import React from "react";
 
-export default function Form(props) {
-  const {change, submit, errors} = props
-  const {name, email, password, terms} = props.values
+const Form = (props) => {
+const {change, submit, errors} = props
+const {username, email, password, tos} = props.values
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    submit();
-  };
+const onChange = event => {
+  const { name, value, checked, type} = event.target;
+  const newVal = type === 'checkbox' ? checked : value;
+  change(name, newVal);
+}
 
-  const onChange = evt => {
-    const { name, value, type, checked } = evt.target
-    const valueToUse = type === 'checkbox' ? checked : value;
-    change(name, valueToUse);
-  }
+const onSubmit = event => {
+  event.preventDefault();
+  submit();
+}
 
   return (
-    <div>
-        <h1>New User Form</h1>
-      <form className="form container" onSubmit={onSubmit}>
-      <div className='errors'>
-          <p>{errors.name}</p>
-          <p>{errors.email}</p>
-          <p>{errors.password}</p>
-          <p>{errors.terms}</p>
+    <div className="usercard">
+      <h1>New User Form</h1>
+      <div className="errors">
+        <p>{errors.username}</p>
+        <p>{errors.email}</p>
+        <p>{errors.password}</p>
+        <p>{errors.tos}</p>
+      </div>
+      <form onSubmit={onSubmit}>
+        <div className="input">
+        <label>
+          Name:
+          <input type="text" name="username" value={username} onChange={onChange} />
+        </label>
+        <label>
+          Email:
+          <input type="email" name="email" value={email} onChange={onChange} />
+        </label>
+        <label>
+          Password:
+          <input type="password" name="password" value={password} onChange={onChange} />
+        </label>
         </div>
         <label>
-          Name
-          <input
-            name="name"
-            type="text"
-            value={name}
-            onChange={onChange}
-          />
+          Terms of Service:
+          <input type="checkbox" name="tos" checked={tos} onChange={onChange}/>
         </label>
-        <label>
-          Email
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Terms and Conditions
-          <input
-            name="terms"
-            type="checkbox"
-            checked={terms}
-            onChange={onChange}
-          />
-        </label>
-        <input type="submit"/>
+        <input type="submit" value="Submit Form"/>
       </form>
     </div>
   );
-}
+};
+
+export default Form;
