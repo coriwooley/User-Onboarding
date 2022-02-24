@@ -1,7 +1,8 @@
 import React from "react";
 
 export default function Form(props) {
-  const {values, change, submit, errors} = props
+  const {change, submit, errors} = props
+  const {name, email, password, terms} = props.values
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -19,17 +20,17 @@ export default function Form(props) {
         <h1>New User Form</h1>
       <form className="form container" onSubmit={onSubmit}>
       <div className='errors'>
-          <div>{errors.name}</div>
-          <div>{errors.email}</div>
-          <div>{errors.password}</div>
-          <div>{errors.terms}</div>
+          <p>{errors.name}</p>
+          <p>{errors.email}</p>
+          <p>{errors.password}</p>
+          <p>{errors.terms}</p>
         </div>
         <label>
           Name
           <input
             name="name"
             type="text"
-            value={values.name}
+            value={name}
             onChange={onChange}
           />
         </label>
@@ -38,7 +39,7 @@ export default function Form(props) {
           <input
             name="email"
             type="email"
-            value={values.email}
+            value={email}
             onChange={onChange}
           />
         </label>
@@ -47,7 +48,7 @@ export default function Form(props) {
           <input
             name="password"
             type="password"
-            value={values.password}
+            value={password}
             onChange={onChange}
           />
         </label>
@@ -56,7 +57,7 @@ export default function Form(props) {
           <input
             name="terms"
             type="checkbox"
-            checked={values.terms}
+            checked={terms}
             onChange={onChange}
           />
         </label>
