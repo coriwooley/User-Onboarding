@@ -12,6 +12,7 @@ const schema = yup.object().shape({
     password: yup
     .string()
     .required('Must enter password')
+    .min(6, 'Password must have 6 or more characters')
     .trim(),
     terms: yup
     .boolean()
