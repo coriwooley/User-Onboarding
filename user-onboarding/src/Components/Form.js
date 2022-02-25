@@ -41,9 +41,9 @@ const onSubmit = event => {
         </div>
         <label>
           Terms of Service:
-          <input type="checkbox" name="tos" checked={tos} onChange={onChange}/>
+          <input type="checkbox" id="tosCheckbox" name="tos" checked={tos} onChange={onChange}/>
         </label>
-        <input type="submit" value="Submit Form"/>
+        <input type="submit" id="submitBtn" value="Submit Form"/>
       </form>
     </div>
   );
